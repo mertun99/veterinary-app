@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+{% block title %} Services {% endblock %}
+{% block main %}
+
+<!-- Marketing messaging and featurettes -->
+<!-- from url=(0052)https://getbootstrap.com/docs/4.3/examples/carousel/ -->
+
+<div class="container marketing">
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider" />
+
+    <div class="row featurette">
+        <div class="col-md-7" id="diagnostics">
+            <h2 class="featurette-heading">
+                Diagnostic and therapeutics.
+                <span class="text-muted">By professionals</span>
+            </h2>
+            <p class="lead">
+                We offer a comprehensive array of laboratory tests and advanced
+                imaging technology, such as x-rays, digital ultrasound, a wide
+                variety of endoscopes, and more. We also provide preventive
+                screening with care and attention to detail to ensure your pet
+                is diagnosed correctly. Our veterinary team will ensure
+                the selection of the best possible treatment.
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img
+                src="{{ url_for('static', filename='images/exam.jpg') }}"
+                class="bd-placeholder-img"
+                width="530"
+                height="352"
+                aria-label=""
+            />
+        </div>
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <div class="row featurette" id="surgery">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">
+                Surgery
+                <span class="text-muted">..with cutting-edge equipment.</span>
+            </h2>
+            <p class="lead">
+                We use high-quality surgical equipment such as laser
+                scalpels, the latest types of electrical cauterizers, and more. Our
+                veterinary team will guide you through the process of deciding whether
+                to proceed with surgery, as it can be stressful
+                not only for your pet but for you as well. We are happy to provide
+                you with the necessary information to make the
+                process easier. Our surgical specialties include biopsies,
+                abdominal exploratory surgery, wound repair, and more.
+            </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img
+                src="{{ url_for('static', filename='images/surgery.jpg') }}"
+                class="bd-placeholder-img"
+                width="450"
+                height="350"
+                aria-label=""
+            />
+        </div>
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <div class="row featurette" id="counseling">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">
+                Counseling.
+                <span class="text-muted">You choose the topic!</span>
+            </h2>
+            <p class="lead">
+                We provide guidance regarding your pet's specific needs,
+                including dietary and behavioral advice, to name a few. We are open to
+                discussion and happy to provide useful information regarding your
+                pet's life.
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img
+                src="{{ url_for('static', filename='images/dog.jpg') }}"
+                class="bd-placeholder-img"
+                width="540"
+                height="360"
+                aria-label=""
+            />
+        </div>
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <!-- /END THE FEATURETTES -->
+</div>
+<!-- /.container -->
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const hash = window.location.hash;
+
+        if (hash) {
+            // Temporarily remove the hash from the URL to prevent default scrolling
+            history.replaceState(null, null, ' ');
+
+            // Delay execution
+            setTimeout(function () {
+                const section = document.querySelector(hash);
+                const navbar = document.querySelector('.navbar'); // Adjust selector for navbar
+                const paddingOffset = 20; // Add 20p extra offset for better positioning
+
+                if (section && navbar) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = sectionPosition - navbarHeight - paddingOffset; // UPDATED
+
+                    // Scroll
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Restore the hash
+                    history.replaceState(null, null, hash);
+                }
+            }, 100); // Render delay
+        }
+    });
+</script>
+
+{% endblock %}

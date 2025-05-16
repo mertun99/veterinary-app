@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %} Admin login {% endblock %}
+{% block main %}
+
+
+<!--https://mdbootstrap.com/docs/standard/extended/login/-->
+<div class="container">
+    <form class="container mt-4" method="post">
+        <!-- Container classes chosen by ChatGPT -->
+        <div class="form-group">
+            <label for="name">Username:</label> <i></i>
+            <input
+                required
+                type="text"
+                class="form-control"
+                id="admin_username"
+                name="admin_username"
+                placeholder="Try &quot;admin&quot;"
+            />
+        </div>
+        <div class="form-group">
+            <label for="email">Password:</label> <i></i>
+            <input
+                required
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Try &quot;admin&quot;"
+            />
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+</div>
+{% endblock %}
