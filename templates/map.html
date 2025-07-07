@@ -2,7 +2,7 @@
 {% block title %} Location & Contact {% endblock %}
 {% block index %}
 
-<div class="container col-xxl-8 px-4 py-5" id="delayed-content" style="visibility: hidden;">
+<div class="container col-xxl-8 px-4 py-5">
     <!-- https://getbootstrap.com/docs/5.3/examples/heroes/ -->
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6" id="mapContainer">
@@ -41,14 +41,3 @@
 
 {% endblock %}
 
-{% block javascript %}
-
-<script>
-  window.onload = function () {
-    setTimeout(function () {
-      document.getElementById("delayed-content").style.visibility = "visible";
-    }, 1000); // 1 second delay after full page load
-  };
-</script>
-
-{% endblock %}
