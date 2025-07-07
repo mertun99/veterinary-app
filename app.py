@@ -178,7 +178,6 @@ def clear():
     today = time["today"]
     db.execute("DELETE FROM appointments WHERE date < ?;",today)
     db.execute("DELETE FROM appointments WHERE status = ?;", "rejected")
-    db.execute("DELETE FROM appointments WHERE status = ? AND date < ?;", "accepted",today)
     return redirect("/console")
 
 
